@@ -9,7 +9,7 @@ ADD setup.sql /docker-entrypoint-initdb.d
 
 #ENTRYPOINT ["../entrypoint.sh"]
 
-EXPOSE 33060:3306
+#EXPOSE 33060:3306
 
 
 

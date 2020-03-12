@@ -1,0 +1,16 @@
+services:
+      database:
+        image: mysqlserver-compose
+        ports: 
+            - "1111:3306"
+        
+        # container_name: containernewmovie
+      web :
+        build: 
+          context: .
+        image: crud-app-compose
+        ports: 
+            - "2222:2000"
+        depends_on: 
+            - database
+version: '3.0'
