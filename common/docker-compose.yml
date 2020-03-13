@@ -8,9 +8,20 @@ services:
       web :
         build: 
           context: .
-        image: crud-app-compose
+        image: crud-app-compose      
         ports: 
             - "2222:2000"
-        depends_on: 
+        links: 
+          - database
+            #condition: service_healthy
+          - redis
+            #condition: service_started
+        restart: always
+      redis:
+        image: redis
+        ports:
+            - "6379:6379"
+        links: 
             - database
+        restart: always
 version: '3.0'
